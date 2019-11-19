@@ -31,6 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="routes\addfurniture.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\furniture.js">
       <SubType>Code</SubType>
     </Compile>
@@ -38,10 +41,19 @@
     <Compile Include="routes\signin.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="routes\signup.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\users.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
+    <Content Include="public\stylesheets\Style.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
+    <Content Include="views\addfurniture.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\footer.pug">
       <SubType>Code</SubType>
     </Content>
@@ -55,6 +67,9 @@
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
     <Content Include="views\signin.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\Signup.pug">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>

@@ -1,0 +1,32 @@
+﻿extends layout
+
+block content
+  
+  .container.contact
+      .row(style='margin-top:150px;margin-bottom:100px')
+        .col-md-3
+          .contact-info
+            img(src='https://image.ibb.co/kUASdV/contact-image.png' alt='image')
+            h2 Add New Furniture Item
+            h6 Furniture Store
+        .col-md-9
+          .contact-form
+            .form-group
+              label.control-label.col-sm-8(for='text') Furniture Name:
+              .col-sm-10
+                input#fname.form-control(type='text' placeholder='Enter Name' name='name')
+            .form-group
+              label.control-label.col-sm-2(for='text') Description:
+              .col-sm-10
+                input#fname.form-control(type='text' placeholder='Enter Description' name='description')
+            .form-group
+              label.control-label.col-sm-2(for='file') Image:
+              .col-sm-10
+                input#email.form-control(type='file' placeholder='Enter Image' name='image')
+            .form-group
+              label.control-label.col-sm-2(for='text') Price:
+              .col-sm-10
+                input#fname.form-control(type='text' placeholder='Enter Price' name='price')
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-primary(type='submit') Add New Item
