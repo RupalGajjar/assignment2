@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET projects page. */
+/* GET furniture page. */
 router.get('/', function (req, res) {
     res.render('furniture', { title: 'furniture' });
 });
