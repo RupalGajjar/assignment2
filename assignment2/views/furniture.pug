@@ -5,19 +5,10 @@ block content
       h1.my-4
         | Furniture List
       .row
-        .col-md-7
-          a(href='./projectone')
-            img.img-fluid.rounded.mb-3.mb-md-0(src='https://www.christies.com/media-library/images/features/articles/2019/08/12/a-z-of-furniture-guide-update/set-of-ten-george-iii-mahogany-diningchairs-late-18th-centuryinteriors.jpg?w=780' alt='')
-        .col-md-5
-          h3 Chairs set
-          p
-            | 	Description
-            .br
-            |   Furniture Name : Wood Chair
-            .br
-            |   Type : 1 Seater
-            .br
-            |   Price : $100
-          a.btn.btn-primary(href='./projectone') Buy Item
-      hr
-      
+        each advertisement in allAdvertisements
+          .col-md-5
+            h3 #{advertisement.title}
+            p #{advertisement.description}
+            a.btn.btn-primary $ #{advertisement.price}
+            a.btn.btn-info.ml-2(href='/furniture/edit/'+advertisement._id) Edit
+            a.btn.btn-danger.ml-2(href='/furniture/delete/'+advertisement._id) Delete

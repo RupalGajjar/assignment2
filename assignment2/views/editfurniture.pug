@@ -1,4 +1,4 @@
-﻿extends layout
+extends layout
 
 block content
   
@@ -10,19 +10,20 @@ block content
             h2 Add New Furniture Item
             h6 Furniture Store
         .col-md-9
-          form.contact-form(method='post' action='/furniture/add')
+          form.contact-form(method='post' action='/furniture/edit')
+            input(name='id' type='hidden' value=advertisement.id)  
             .form-group
               label.control-label.col-sm-8(for='title') Furniture Name:
               .col-sm-10
-                input#title.form-control(type='text' placeholder='Enter Name' name='title')
+                input#title.form-control(type='text' value=advertisement.title placeholder='Enter Name' name='title')
             .form-group
               label.control-label.col-sm-2(for='description') Description:
               .col-sm-10
-                input#description.form-control(type='text' placeholder='Enter Description' name='description')
+                input#description.form-control(type='text' value=advertisement.description placeholder='Enter Description' name='description')
             .form-group
               label.control-label.col-sm-2(for='price') Price:
               .col-sm-10
-                input#price.form-control(type='text' placeholder='Enter Price' name='price')
+                input#price.form-control(type='text' value=advertisement.price placeholder='Enter Price' name='price')
             .form-group
               .col-sm-offset-2.col-sm-10
                 button.btn.btn-primary(type='submit') Add New Item

@@ -31,13 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="models\account.js" />
     <Compile Include="models\db.js" />
-    <Compile Include="routes\addfurniture.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="routes\furniture.js">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="routes\ad.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\signin.js">
       <SubType>Code</SubType>
@@ -55,6 +51,7 @@
     <Content Include="views\addfurniture.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\editfurniture.pug" />
     <Content Include="views\footer.pug">
       <SubType>Code</SubType>
     </Content>

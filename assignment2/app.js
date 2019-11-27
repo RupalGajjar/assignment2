@@ -8,15 +8,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoDb = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/assignment2');
+var passport = require('passport');
+var Account = require('./models/account');
+var LocalStrategy = require('passport-local').Strategy;
+
+mongoose.connect('mongodb://localhost/furnitureStore');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var furniture = require('./routes/furniture');
 var signin = require('./routes/signin');
 var signup = require('./routes/signup');
-var addfurniture = require('./routes/addfurniture');
-
+var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+var advertisements = require('./routes/ad');
 var app = express();
 
 // view engine setup
@@ -30,13 +34,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'secrettexthere',
+    saveUninitialized: true,
+    resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use('/', routes);
+
 app.use('/users', users);
-app.use('/furniture', furniture);
 app.use('/signin', signin);
 app.use('/signup', signup);
-app.use('/addfurniture', addfurniture);
+app.use('/', advertisements);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -45,6 +55,39 @@ app.use(function (req, res, next) {
     next(err);
 });
 
+//Serialize user
+passport.serializeUser(function (user, done) {
+    done(null, user.id)
+});
+
+//Deserialize user try to find username
+passport.deserializeUser(function (id, done) {
+    Account.findById(id, function (err, user) {
+        done(err, user);
+    });
+});
+
+//Local strategy used for logging users
+passport.use(new LocalStrategy(
+    function (username, password, done) {
+        Account.findOne({
+            username: username
+        }, function (err, user) {
+            if (err) {
+                return done(err);
+            }
+
+            if (!user) {
+                return done(null, false);
+            }
+
+            if (user.password != password) {
+                return done(null, false);
+            }
+            return done(null, user);
+        });
+    }
+));
 // error handlers
 
 // development error handler

@@ -10,15 +10,15 @@ block content
             h2 Sign In
             h4 Furniture Store
         .col-md-9
-          .contact-form
+          form.contact-form(method='post' action='/signin')
             .form-group
-              label.control-label.col-sm-2(for='email') Email:
+              label.control-label.col-sm-2(for='username') Email:
               .col-sm-10
-                input#fname.form-control(type='email' placeholder='Enter Email' name='email')
+                input#username.form-control(type='email' placeholder='Enter Email' name='username')
             .form-group
               label.control-label.col-sm-2(for='password') Password:
               .col-sm-10
-                input#email.form-control(type='password' placeholder='Enter Password' name='password')
+                input#password.form-control(type='password' placeholder='Enter Password' name='password')
             .form-group
               .col-sm-offset-2.col-sm-10
                 button.btn.btn-primary(type='submit') Sign In
