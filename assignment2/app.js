@@ -12,7 +12,7 @@ var passport = require('passport');
 var Account = require('./models/account');
 var LocalStrategy = require('passport-local').Strategy;
 
-mongoose.connect('mongodb://localhost/furnitureStore');
+mongoose.connect('mongodb+srv://admin:12345@cluster0-uu4dg.azure.mongodb.net/test?retryWrites=true&w=majority');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
