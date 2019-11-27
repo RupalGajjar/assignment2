@@ -5,7 +5,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>assignment2</Name>
     <RootNamespace>assignment2</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>FurnitureStoreNodejs - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -42,6 +43,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\users.js" />
+    <None Include="FurnitureStoreNodejs - Web Deploy.pubxml" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="public\stylesheets\Style.css">
@@ -70,6 +72,8 @@
     <Content Include="views\Signup.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
